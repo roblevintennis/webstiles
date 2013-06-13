@@ -11,6 +11,8 @@
 	<link rel="stylesheet" href="css/style.css" />
 	<link href="css/style.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
+    <link href="./components/select2/select2.css" rel="stylesheet"/>
+
 </head>
 <body>
 <header class="masthead" role="banner"><div class="wrap">
@@ -110,6 +112,33 @@
 					</div>
 				</section><!-- /.ws-adjectives -->
 
+				<section class="ws-item ws-settings">
+					<!-- ## Describe the project here -->
+					<h1>Color Settings - Select colors 1-6</h1>
+					<div class="stack">
+						<div class="sympl twothirds s-half">
+							<input type="hidden" id="color-picker" style="width:100%" />
+						</div>
+						<div class="sympl onethird s-half">
+							$red/#redhex
+							$blue/#bluehex
+							$green/#greenhex
+						</div>
+					</div>
+					<h1>Typography Settings - Select font-family</h1>
+					<div class="stack">
+						<div class="sympl twothirds s-half">
+						    <select multiple id="font-picker" style="width:100%;">
+						        <option value="helvetica">Helvetica</option>
+						        <option value="arial">Arial</option>
+						        <option value="sans">Sans</option>
+							</select>
+						</div>
+						<div class="sympl onethird s-half">
+							Helvetica, arial, sans
+						</div>
+					</div>
+				</section><!-- /.ws-settings-->
 			</div>
 		</div>
 	</div>
@@ -123,8 +152,11 @@
 	</footer><!-- FOOTER -->
 </div>
 
+<!-- TODO: Should we opt for min.js files instead? -->
+<!-- Debuggability vs. Performance (does later mater for webstiles?) -->
 <script src="./components/jquery/jquery.js"></script>
 <script src="./components/underscore/underscore.js"></script>
+<script src="./components/select2/select2.js"></script>
 <script src="./scripts/js/colors.js"></script>
 <script src="./scripts/js/app.js"></script>
 </body>

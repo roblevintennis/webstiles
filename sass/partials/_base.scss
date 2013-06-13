@@ -12,12 +12,19 @@ Namanyay Goel | www.namanyayg.com | @namanyayg */
 @import 'partials/forms';
 @import 'partials/typography';
 
-
-
 /*** =ADJECTIVES ***/
 .ws-adjectives div {
   font-size: 1.5em;
   padding-bottom: .25em;
+}
+
+// Override
+.ws-item.ws-adjectives {
+  margin-bottom: 1em;
+}
+.ws-settings {
+  border: .25em solid $soft-white;
+  padding: 10px;
 }
 
 /*** =COLOPHON ***/

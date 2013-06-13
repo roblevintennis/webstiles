@@ -1163,14 +1163,25 @@ h5, h6 {
 }
 
 /*** =ADJECTIVES ***/
-/* line 18, ../sass/partials/_base.scss */
+/* line 16, ../sass/partials/_base.scss */
 .ws-adjectives div {
   font-size: 1.5em;
   padding-bottom: .25em;
 }
 
+/* line 22, ../sass/partials/_base.scss */
+.ws-item.ws-adjectives {
+  margin-bottom: 1em;
+}
+
+/* line 25, ../sass/partials/_base.scss */
+.ws-settings {
+  border: 0.25em solid #eeeeee;
+  padding: 10px;
+}
+
 /*** =COLOPHON ***/
-/* line 24, ../sass/partials/_base.scss */
+/* line 31, ../sass/partials/_base.scss */
 .colophon {
   clear: both;
   text-align: center;
