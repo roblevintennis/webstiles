@@ -66,7 +66,13 @@ $(document).ready(function () {
             case 'color-3':
                 console.log("In color-3");
                 $('.menu a').css('border', '.25em solid '+newColor);
-                $('input:focus, textarea:focus').css('border-color', newColor);
+                $('input:focus, textarea:focus').css({'border-color': newColor});
+                $('input, textarea').focusin(function(evt) {
+                    $(evt.currentTarget).css('border-color', newColor);
+                });
+                $("input, textarea").focusout(function(evt) {
+                    $(evt.currentTarget).css('border-color', flattened['$whiteSmoke']);
+                });
                 // Changes all anchors colors (but NOT dynamic color-picker anchors)
                 $('a, a:link, a:visited').not('.ws-settings a').css('color', newColor);
                 // Hack since :not(:hover) no longer works properly in latest jquery :(
