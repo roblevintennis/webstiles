@@ -71,8 +71,17 @@ $(document).ready(function () {
                 $('a, a:link, a:visited').not('.ws-settings a').css('color', newColor);
                 // Hack since :not(:hover) no longer works properly in latest jquery :(
                 $('.menu a').hover(
-                    function(evt) { $(evt.currentTarget).css('color', flattened['$whiteSmoke']); },
-                    function(evt) { $(evt.currentTarget).css('color', newColor); }
+                    function(evt) { $(evt.currentTarget).css({
+                            'color': flattened['$whiteSmoke'],
+                            'background': newColor
+                        });
+                    },
+                    function(evt) {
+                        $(evt.currentTarget).css({
+                            'color': newColor,
+                            'background': 'transparent'
+                        });
+                    }
                 );
                 $('.color-3, .btn-primary').css('background', newColor);
                 break;
