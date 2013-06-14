@@ -9,6 +9,10 @@ $(document).ready(function () {
         });
     });
 
+    // function getColor(key) {
+    //     var c = flattened[key];
+    //     return { id: k, text: k.substring(1) } 
+    // }
     function getColors(key) {
         var arr = _.map(colors[key], function(v, k) {
             return { id: k, text: k.substring(1) };
@@ -17,7 +21,7 @@ $(document).ready(function () {
     }
 
     // Default colors start as defined here
-    var colorsUsed = {
+    var colorsInUse = {
         color1: '$redCrimson',
         color2: '$yellowGold',
         color3: '$blueSky',
@@ -85,10 +89,12 @@ input[type='button'], input[type='submit'], button, .button {
         { text: 'Yellows', children: getColors('_yellows') }
     ];
 
-    $("#color-picker-1").select2({
-        // dropdownCssClass : 'bigdrop',
-        placeholder: 'Select Colors',
+    var select2Options = {
         allowClear: true,
+        initSelection : function (element, callback) {
+            var data = {id: element.val(), text: element.val()};
+            callback(data);
+        },
         //Allow manually entered text in drop down.
         createSearchChoice: function (term, data) {
             if ($(data).filter(function () {
@@ -100,16 +106,11 @@ input[type='button'], input[type='submit'], button, .button {
                 };
             }
         },
-        data: colorsForSelect2,
-        /* Example data structure select2 accepts
-        data: [
-            { text: "Blues", children: [
-                { id: "$Blue", text: "Blue" },
-                { id: "$BlueLight", text: "BlueLight" }
-            ] }
-        ]
-        */
-    });
+        data: colorsForSelect2
+    };
+    // Set the value attribute so that initSelection works properly
+    $("#color-picker-1").val(colorsInUse.color1);
+    $("#color-picker-1").select2(select2Options);
     $("#color-picker-1").on("change", function(e) {
         console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
         // TODO:
@@ -118,36 +119,39 @@ input[type='button'], input[type='submit'], button, .button {
         // 3. Check if valid color or hex value (nice to have???)
         // 4. Reset the corresponding DOM elements for this color-N
     });
-    $("#color-picker-2").select2({
-        // dropdownCssClass : 'bigdrop',
-        placeholder: 'Select Colors',
-        allowClear: true,
-        //Allow manually entered text in drop down.
-        createSearchChoice: function (term, data) {
-            if ($(data).filter(function () {
-                return this.text.localeCompare(term) === 0;
-            }).length === 0) {
-                return {
-                    id: term,
-                    text: term
-                };
-            }
-        },
-        data: colorsForSelect2,
-        /*
-        ,formatResult: function(exercise) {
-            return "<div class='select2-user-result'>" + exercise.term + "</div>";
-        },
-        formatSelection: function(exercise) {
-            return exercise.term;
-        },
-        initSelection : function (element, callback) {
-            var elementText = $(element).attr('data-init-text');
-            callback({"term":elementText});
-        }
-        */
+
+    $("#color-picker-2").val(colorsInUse.color2);
+    $("#color-picker-2").select2(select2Options);
+    $("#color-picker-2").on("change", function(e) {
+        console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
     });
 
+    $("#color-picker-3").val(colorsInUse.color3);
+    $("#color-picker-3").select2(select2Options);
+    $("#color-picker-3").on("change", function(e) {
+        console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+    });
+
+    $("#color-picker-4").val(colorsInUse.color4);
+    $("#color-picker-4").select2(select2Options);
+    $("#color-picker-4").on("change", function(e) {
+        console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+    });
+
+    $("#color-picker-5").val(colorsInUse.color5);
+    $("#color-picker-5").select2(select2Options);
+    $("#color-picker-5").on("change", function(e) {
+        console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+    });
+
+    $("#color-picker-6").val(colorsInUse.color6);
+    $("#color-picker-6").select2(select2Options);
+    $("#color-picker-6").on("change", function(e) {
+        console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+    });
+
+
+    // ============== TYPOGRAPHY ============= //
     $("#font-picker").select2({
         // dropdownCssClass : 'bigdrop',
         placeholder: 'Create font-stack',

@@ -579,6 +579,9 @@ table {
   border-spacing: 0;
 }
 
+/**
+ * Downloaded from: https://github.com/lloydk/font-stack/blob/master/lib/stylesheets/_font-stack.scss
+ */
 /*
  *
  * Color Me SASS v1.0
@@ -644,7 +647,7 @@ body {
 /* Remember to use normalize or a reset! */
 /* line 10, ../sass/partials/_core.scss */
 body, input, textarea, button, form, select {
-  font: 100%/1.5 "Tahoma", sans-serif;
+  font: 100%/1.5 Tahoma, Geneva, Verdana, sans-serif;
   color: #414141;
   /* Inputs, forms, etc, can have weird font styles */
 }
