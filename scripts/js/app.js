@@ -16,6 +16,55 @@ $(document).ready(function () {
         return arr;
     }
 
+    // Default colors start as defined here
+    var colorsUsed = {
+        color1: '$redCrimson',
+        color2: '$yellowGold',
+        color3: '$blueSky',
+        color4: '$grayCharcoal',
+        color5: '$graySilver',
+        color6: '$brownChocolate',
+        // custom colors mainly for border and typo
+        black: '$black',
+        white: '$whiteSmoke',
+    };
+/*
+// Custom colors
+$black: #222;
+$medium-black: lighten($black, 12%); #414141
+$hard-black: darken($black, 14%); // #000
+
+// Blacks
+h1, h2, h3, h4, h5, h6 { color: $black
+body, input, textarea, button, form, select {color: $medium-black;
+mark {background: $yellow; color: $hard-black;}
+
+// Grays
+.btn-tertiary {background: $gray-dark;
+a:hover, a:active, a:focus {border-bottom-color: $gray-light;
+fieldset {border-color: $graySilver;}
+.ws-item {
+    & > h1 {color: $gray-dark;
+
+// Blues and Whites
+a, a:link, a:visited {color: $blueSky;
+.menu a {border: .25em solid $blueSky;
+.menu a:hover {
+  background: $blueSky;
+  color: $whiteSmoke;
+}
+input:focus, textarea:focus {border-color: $blueSky;
+input[type='button'], input[type='submit'], button, .button {
+  background: $blueSky;
+  color: $whiteSmoke;
+
+.ws-settings {
+  border: .25em solid $soft-white;
+.colophon {
+  border-top: thin solid $soft-white;
+
+
+*/
     var colorsForSelect2 = [
         { text: 'Ambers', children: getColors('_ambers') },
         { text: 'Blues', children: getColors('_blues') },

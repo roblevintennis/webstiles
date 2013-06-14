@@ -621,12 +621,12 @@ table {
   background: #7b3f00;
 }
 
-/* line 26, ../sass/partials/_colors.scss */
+/* line 28, ../sass/partials/_colors.scss */
 fieldset {
   border-color: silver;
 }
 
-/* line 27, ../sass/partials/_colors.scss */
+/* line 29, ../sass/partials/_colors.scss */
 mark {
   background: #ffcc00;
   color: black;
@@ -645,7 +645,7 @@ body {
 /* line 10, ../sass/partials/_core.scss */
 body, input, textarea, button, form, select {
   font: 100%/1.5 "Tahoma", sans-serif;
-  color: #444444;
+  color: #414141;
   /* Inputs, forms, etc, can have weird font styles */
 }
 
@@ -663,7 +663,7 @@ a, a:link, a:visited {
 
 /* line 28, ../sass/partials/_core.scss */
 a:hover, a:active, a:focus {
-  border-bottom-color: #dddddd;
+  border-bottom-color: #d2d2d2;
 }
 
 /*
@@ -970,7 +970,7 @@ a:hover, a:active, a:focus {
 /* line 14, ../sass/partials/_custom.scss */
 .ws-item > h1 {
   font-size: .875em;
-  color: #999999;
+  color: #9f9f9f;
   margin: 1em 0 1em 0;
 }
 /* line 19, ../sass/partials/_custom.scss */
@@ -1136,7 +1136,7 @@ input[type='button']:active, input[type='submit']:active, button:active, .button
 /* line 73, ../sass/partials/_forms.scss */
 .btn-tertiary {
   font-size: .875em;
-  background: #999999;
+  background: #9f9f9f;
 }
 
 /*
@@ -1196,37 +1196,4 @@ h5, h6 {
   line-height: 1.5;
   margin: 0.75em 0;
   text-transform: uppercase;
-}
-
-/*** =ADJECTIVES ***/
-/* line 16, ../sass/partials/_base.scss */
-.ws-adjectives div {
-  font-size: 1.5em;
-  padding-bottom: .25em;
-}
-
-/* line 22, ../sass/partials/_base.scss */
-.ws-item.ws-adjectives {
-  margin-bottom: 1em;
-}
-
-/* line 25, ../sass/partials/_base.scss */
-.ws-settings {
-  border: 0.25em solid #eeeeee;
-  padding: 10px;
-}
-/* line 28, ../sass/partials/_base.scss */
-.ws-settings .stack {
-  margin-bottom: .5em;
-}
-
-/*** =COLOPHON ***/
-/* line 34, ../sass/partials/_base.scss */
-.colophon {
-  clear: both;
-  text-align: center;
-  font-size: .875em;
-  padding: 1.714em 0;
-  border-top: thin solid #eeeeee;
-  margin-top: 1.714em;
 }
