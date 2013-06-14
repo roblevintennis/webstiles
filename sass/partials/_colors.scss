@@ -26,4 +26,6 @@ $gray-dark: darken($gray-light, 20%);  // #9f9f9f
 // normalize overrides (essentially the same but put here
 // so we can more easily keep track of these later)
 fieldset {border-color: $graySilver;}
-mark {background: $yellow; color: $hard-black;}
+mark {background: $yellowGold; color: $hard-black;}
+
+

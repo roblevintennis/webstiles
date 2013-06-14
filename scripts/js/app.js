@@ -9,10 +9,8 @@ $(document).ready(function () {
         });
     });
 
-    // function getColor(key) {
-    //     var c = flattened[key];
-    //     return { id: k, text: k.substring(1) } 
-    // }
+// ============== COLORS ============= //
+
     function getColors(key) {
         var arr = _.map(colors[key], function(v, k) {
             return { id: k, text: k.substring(1) };
@@ -32,7 +30,70 @@ $(document).ready(function () {
         black: '$black',
         white: '$whiteSmoke',
     };
-/*
+    // This sort of makes our statically defined colors redundant
+    setCSSColor('color-1', colorsInUse.color1);
+    setCSSColor('color-2', colorsInUse.color2);
+    setCSSColor('color-3', colorsInUse.color3);
+    setCSSColor('color-4', colorsInUse.color4);
+    setCSSColor('color-5', colorsInUse.color5);
+    setCSSColor('color-6', colorsInUse.color6);
+    /**
+     * This will go through the color group's corresponding DOM selectors and reset the
+     * `color`, `background-color`, `border`, etc., as appropriate with new color.
+     * -- NOTE -- The way we do this here requires that the JavaScript selectors match
+     * up with whatever's set in the Sass/CSS. If we add new rules that use colors in the
+     * CSS, we'll need to keep this consistent with those new rules so dynamic updates are
+     * applied as expected.
+     * @param {String} group    The colors group e.g. 'color-1', 'color-6', etc.
+     * @param {String} newColor The new color. Can either by a key in to our color-me-sass
+     * colors, or an actual color value e.g. `red` or `#ddd`.
+     */
+    function setCSSColor(group, newColor) {
+        // If newColor is a key to our colors structure use, otherwise, assume a color value
+        if (flattened[newColor]) {
+            newColor = flattened[newColor];
+        }
+        switch (group) {
+            case 'color-1':
+                console.log("In color-1");
+                $('.color-1').css('background', newColor);
+                break;
+            case 'color-2':
+                console.log("In color-2");
+                $('.color-2, .btn-secondary').css('background', newColor);
+                $('mark').css('background', newColor);
+                break;
+            case 'color-3':
+                console.log("In color-3");
+                $('.menu a').css('border', '.25em solid '+newColor);
+                $('input:focus, textarea:focus').css('border-color', newColor);
+                // Changes all anchors colors (but NOT dynamic color-picker anchors)
+                $('a, a:link, a:visited').not('.ws-settings a').css('color', newColor);
+                // Hack since :not(:hover) no longer works properly in latest jquery :(
+                $('.menu a').hover(
+                    function(evt) { $(evt.currentTarget).css('color', flattened['$whiteSmoke']); },
+                    function(evt) { $(evt.currentTarget).css('color', newColor); }
+                );
+                $('.color-3, .btn-primary').css('background', newColor);
+                break;
+            case 'color-4':
+                console.log("In color-4");
+                $('.color-4').css('background', newColor);
+                break;
+            case 'color-5':
+                console.log("In color-5");
+                $('.color-5').css('background', newColor);
+                break;
+            case 'color-6':
+                console.log("In color-6");
+                $('.color-6').css('background', newColor);
+                break;
+            default:
+                console.log("In default case");
+                break;
+        }
+
+        /*
 // Custom colors
 $black: #222;
 $medium-black: lighten($black, 12%); #414141
@@ -41,7 +102,7 @@ $hard-black: darken($black, 14%); // #000
 // Blacks
 h1, h2, h3, h4, h5, h6 { color: $black
 body, input, textarea, button, form, select {color: $medium-black;
-mark {background: $yellow; color: $hard-black;}
+mark {background: lighten($yellowGold, 5%) ; color: $hard-black;}
 
 // Grays
 .btn-tertiary {background: $gray-dark;
@@ -66,9 +127,9 @@ input[type='button'], input[type='submit'], button, .button {
   border: .25em solid $soft-white;
 .colophon {
   border-top: thin solid $soft-white;
-
-
 */
+    }
+
     var colorsForSelect2 = [
         { text: 'Ambers', children: getColors('_ambers') },
         { text: 'Blues', children: getColors('_blues') },
@@ -89,13 +150,18 @@ input[type='button'], input[type='submit'], button, .button {
         { text: 'Yellows', children: getColors('_yellows') }
     ];
 
+    /**
+     * These are boiler-plate select2 constructor options to remove some duplication
+     * between the various color-pickers using select2
+     * @type {Object}
+     */
     var select2Options = {
         allowClear: true,
         initSelection : function (element, callback) {
             var data = {id: element.val(), text: element.val()};
             callback(data);
         },
-        //Allow manually entered text in drop down.
+        //Allow manually entering color values in text in drop down.
         createSearchChoice: function (term, data) {
             if ($(data).filter(function () {
                 return this.text.localeCompare(term) === 0;
@@ -130,6 +196,9 @@ input[type='button'], input[type='submit'], button, .button {
     $("#color-picker-3").select2(select2Options);
     $("#color-picker-3").on("change", function(e) {
         console.log("change "+JSON.stringify({val:e.val, added:e.added, removed:e.removed}));
+        // TODO: We need this for the other colors too .. seems
+        // like it's changing all colors on page too .. check what's going on
+        setCSSColor('color-3', e.val);
     });
 
     $("#color-picker-4").val(colorsInUse.color4);
@@ -151,11 +220,88 @@ input[type='button'], input[type='submit'], button, .button {
     });
 
 
-    // ============== TYPOGRAPHY ============= //
+// ============== TYPOGRAPHY ============= //
     $("#font-picker").select2({
         // dropdownCssClass : 'bigdrop',
         placeholder: 'Create font-stack',
         allowClear: true
     });
+
+
+//
+// Serif font-stacks
+//
+/*
+$garamond-font-stack: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif !default;
+
+$lucida-bright-font-stack: "Lucida Bright", Georgia, serif !default;
+
+$palatino-font-stack: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif !default;
+
+$big-caslon-font-stack: "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif !default;
+
+$didot-font-stack: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif !default;
+
+$baskerville-font-stack: Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif !default;
+
+$hoefler-text-font-stack: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif !default;
+
+$bodoni-mt-font-stack: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif !default;
+
+$goudy-old-style-font-stack: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif !default;
+
+$constantia-font-stack: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif !default;
+
+$cambria-font-stack: Cambria, Georgia, serif !default;
+
+$book-antiqua-font-stack: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif !default;
+
+
+//
+// Sans-Serif font-stacks
+//
+
+$optima-font-stack: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif !default;
+
+$futura-font-stack: Futura, "Trebuchet MS", Arial, sans-serif !default;
+
+$gill-sans-font-stack: "Gill Sans", "Gill Sans MT", Calibri, sans-serif !default;
+
+$trebuchet-font-stack: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif !default;
+
+$helvetica-font-stack: "Helvetica Neue", Arial, Helvetica, sans-serif !default;
+
+$verdana-font-stack: Verdana, Geneva, sans-serif !default;
+
+$lucida-grande-font-stack: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif !default;
+
+$geneva-font-stack: Geneva, Tahoma, Verdana, sans-serif !default;
+
+$segoe-font-stack: Segoe, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
+
+$candara-font-stack: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !default;
+
+$calibri-font-stack: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif !default;
+
+$franklin-gothic-font-stack: "Franklin Gothic Medium", Arial, sans-serif !default;
+
+$tahoma-font-stack: Tahoma, Geneva, Verdana, sans-serif !default;
+
+
+//
+// Monospace font-stacks
+//
+// Consolas is not included in this stack because it is much smaller than the other fonts listed in the stack.
+//
+
+$monospace-font-stack: "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !default;
+
+
+//
+// Cursive font-stacks
+//
+
+$cursive-font-stack: "Bradley Hand ITC", "Apple Chancery", "URW Chancery L", cursive !default;
+*/
 
 });

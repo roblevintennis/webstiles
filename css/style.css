@@ -631,7 +631,7 @@ fieldset {
 
 /* line 29, ../sass/partials/_colors.scss */
 mark {
-  background: #ffcc00;
+  background: gold;
   color: black;
 }
 
@@ -1101,7 +1101,6 @@ input[type='button'], input[type='submit'], button, .button {
   background: transparent;
   line-height: 1;
   cursor: pointer;
-  background: #73c2fb;
   padding: 1em 1.5em;
   border: 0.25em solid rgba(0, 0, 0, 0.1);
   color: whitesmoke;
@@ -1114,29 +1113,30 @@ input[type='button'], input[type='submit'], button, .button {
   margin-bottom: .75rem;
 }
 
-/* line 55, ../sass/partials/_forms.scss */
+/* line 51, ../sass/partials/_forms.scss */
 input[type='button']:hover, input[type='submit']:hover, button:hover, .button:hover {
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.1);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 61, ../sass/partials/_forms.scss */
+/* line 57, ../sass/partials/_forms.scss */
 input[type='button']:focus, input[type='submit']:focus, button:focus, .button:focus,
 input[type='button']:active, input[type='submit']:active, button:active, .button:active {
   box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.2);
 }
 
-/* line 65, ../sass/partials/_forms.scss */
+/* line 61, ../sass/partials/_forms.scss */
 .btn-primary {
   font-size: 1.125em;
+  background: #73c2fb;
 }
 
-/* line 69, ../sass/partials/_forms.scss */
+/* line 66, ../sass/partials/_forms.scss */
 .btn-secondary {
   background: gold;
 }
 
-/* line 73, ../sass/partials/_forms.scss */
+/* line 70, ../sass/partials/_forms.scss */
 .btn-tertiary {
   font-size: .875em;
   background: #9f9f9f;
