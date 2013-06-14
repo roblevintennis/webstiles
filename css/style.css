@@ -967,12 +967,48 @@ a:hover, a:active, a:focus {
 .ws-item {
   margin-bottom: 3em;
 }
-
-/* line 16, ../sass/partials/_custom.scss */
+/* line 14, ../sass/partials/_custom.scss */
 .ws-item > h1 {
   font-size: .875em;
   color: #999999;
-  margin: 0 0 1.714em 0;
+  margin: 1em 0 1em 0;
+}
+/* line 19, ../sass/partials/_custom.scss */
+.ws-item h1:first-of-type {
+  margin: 0em 0 1em 0;
+}
+
+/*** =ADJECTIVES ***/
+/* line 25, ../sass/partials/_custom.scss */
+.ws-adjectives div {
+  font-size: 1.5em;
+  padding-bottom: .25em;
+}
+
+/* line 31, ../sass/partials/_custom.scss */
+.ws-item.ws-adjectives {
+  margin-bottom: 1em;
+}
+
+/* line 34, ../sass/partials/_custom.scss */
+.ws-settings {
+  border: 0.25em solid #eeeeee;
+  padding: 10px;
+}
+/* line 37, ../sass/partials/_custom.scss */
+.ws-settings .stack {
+  margin-bottom: .5em;
+}
+
+/*** =COLOPHON ***/
+/* line 43, ../sass/partials/_custom.scss */
+.colophon {
+  clear: both;
+  text-align: center;
+  font-size: .875em;
+  padding: 1.714em 0;
+  border-top: thin solid #eeeeee;
+  margin-top: 1.714em;
 }
 
 /*** =MASTHEAD ***/
@@ -1179,9 +1215,13 @@ h5, h6 {
   border: 0.25em solid #eeeeee;
   padding: 10px;
 }
+/* line 28, ../sass/partials/_base.scss */
+.ws-settings .stack {
+  margin-bottom: .5em;
+}
 
 /*** =COLOPHON ***/
-/* line 31, ../sass/partials/_base.scss */
+/* line 34, ../sass/partials/_base.scss */
 .colophon {
   clear: both;
   text-align: center;

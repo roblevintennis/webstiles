@@ -117,12 +117,18 @@
 					<h1>Color Settings - Select colors 1-6</h1>
 					<div class="stack">
 						<div class="sympl twothirds s-half">
-							<input type="hidden" id="color-picker" style="width:100%" />
+							<input multiple type="hidden" id="color-picker-1" style="width:100%" />
 						</div>
 						<div class="sympl onethird s-half">
-							$red/#redhex
-							$blue/#bluehex
-							$green/#greenhex
+							Color 1
+						</div>
+					</div>
+					<div class="stack">
+						<div class="sympl twothirds s-half">
+							<input multiple type="hidden" id="color-picker-2" style="width:100%" />
+						</div>
+						<div class="sympl onethird s-half">
+							Color 2
 						</div>
 					</div>
 					<h1>Typography Settings - Select font-family</h1>
@@ -135,7 +141,7 @@
 							</select>
 						</div>
 						<div class="sympl onethird s-half">
-							Helvetica, arial, sans
+							Font stack
 						</div>
 					</div>
 				</section><!-- /.ws-settings-->
