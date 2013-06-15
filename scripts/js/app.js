@@ -215,6 +215,11 @@ input[type='button'], input[type='submit'], button, .button {
         // like it's changing all colors on page too .. check what's going on
         setCSSColor('color-3', e.val);
     });
+    $("#color-picker-3").on("select2-highlight", function(e) { 
+        // TODO: Have whole UI update on new color selected
+        console.log("highlighted val="+ e.val+" choice="+ JSON.stringify(e.choice));
+        setCSSColor('color-3', e.val);
+    });
 
     $("#color-picker-4").val(colorsInUse.color4);
     $("#color-picker-4").select2(select2Options);
